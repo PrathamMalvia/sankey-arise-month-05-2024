@@ -6,6 +6,7 @@ import travel from '../assets/travel.jpg';
 import Facebook from '../assets/Facebook.svg';
 import Apple from '../assets/Apple.svg';
 import Google from '../assets/Google.svg';
+import { useAuth } from '../Auth/useAuth';
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({
@@ -13,6 +14,7 @@ const LoginPage = () => {
     password: '',
   });
 
+  const { login } = useAuth(); // Get the login function from the Auth context
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -26,8 +28,10 @@ const LoginPage = () => {
       const response = await axios.post('http://localhost:4000/api/login', formData);
 
       if (response.status === 200) {
+        const { token } = response.data; 
+        login(token); 
         alert('Login successful');
-        navigate('/'); // Navigate to the home page
+        navigate('/homepage'); // Navigate to the home page
       } else {
         alert('Login failed. Please check your credentials.');
       }

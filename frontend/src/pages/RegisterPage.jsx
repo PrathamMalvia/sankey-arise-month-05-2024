@@ -36,7 +36,7 @@ const RegisterPage = () => {
 
       if (response.status === 201) {
         alert('User registered successfully');
-        navigate('/'); // Navigate to the home page
+        navigate('/homepage'); // Navigate to the home page
       } else {
         alert(response.data.message);
       }
