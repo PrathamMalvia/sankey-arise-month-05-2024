@@ -154,9 +154,9 @@ const RegisterPage = () => {
             <h6 className="text-sm">Already have an account? <b className="text-[#07689F]"><Link to="/login">Login</Link></b> </h6>
             <h6 className="text-sm">Or</h6>
             <div className="flex items-center gap-4 md:gap-10">
-              <img src={Facebook} alt="Facebook" className="w-8 h-8 md:w-10 md:h-10" />
-              <img src={Apple} alt="Apple" className="w-8 h-8 md:w-10 md:h-10" />
-              <img src={Google} alt="Google" className="w-8 h-8 md:w-10 md:h-10" />
+              <img src={Facebook} alt="Facebook" className="w-8 h-8 md:w-10 md:h-10 cursor-pointer" />
+              <img src={Apple} alt="Apple" className="w-8 h-8 md:w-10 md:h-10 cursor-pointer" />
+              <img src={Google} alt="Google" className="w-8 h-8 md:w-10 md:h-10 cursor-pointer" />
             </div>
           </div>
 

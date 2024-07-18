@@ -28,10 +28,10 @@ const LoginPage = () => {
       const response = await axios.post('http://localhost:4000/api/login', formData);
 
       if (response.status === 200) {
-        const { token } = response.data; 
-        login(token); 
+        const { token } = response.data;
+        login(token);
         alert('Login successful');
-        navigate('/homepage'); // Navigate to the home page
+        navigate('/homepage'); // Redirect to the home page
       } else {
         alert('Login failed. Please check your credentials.');
       }
@@ -47,7 +47,6 @@ const LoginPage = () => {
       <hr />
 
       <div className="container mx-auto my-8 p-4 md:my-20 md:p-14 flex flex-col md:flex-row bg-neutral-200 border border-neutral-400 w-11/12 md:w-9/12 rounded-xl">
-
         {/* image */}
         <div className="w-full md:w-1/2 mb-8 md:mb-0 flex justify-center md:items-center">
           <div className="w-4/5 rounded-sm">
@@ -56,7 +55,7 @@ const LoginPage = () => {
         </div>
 
         {/* login */}
-        <div className="w-full md:w-1/2">
+        <div className="w-full md:w-1/2 content-center">
           <h4 className="text-xl font-black mb-2">Login</h4>
           <h6>Login to access your Easyset24 account</h6>
           <form onSubmit={handleSubmit}>
@@ -86,17 +85,25 @@ const LoginPage = () => {
                 onChange={handleChange}
               />
             </div>
+            <div className="flex items-center my-4 justify-between">
+              <div className='flex items-center gap-2'>
+                <input type="checkbox" name="checkbox" id="checkbox" className="w-5 h-5" />
+                <h6 className="text-sm font-semibold ">Remember Me</h6>
+              </div>
+              <h6 className="text-sm font-semibold  text-[#07689F]">Forgot Password?</h6>
+            </div>
             <button type="submit" className="w-full h-10 bg-[#07689F] text-white font-bold rounded-sm">Login</button>
           </form>
+
+
           <div className="flex flex-col items-center gap-2 mt-4">
             <h6 className="text-sm">Or</h6>
             <div className="flex items-center gap-4 md:gap-10">
-              <img src={Facebook} alt="Facebook" className="w-8 h-8 md:w-10 md:h-10" />
-              <img src={Apple} alt="Apple" className="w-8 h-8 md:w-10 md:h-10" />
-              <img src={Google} alt="Google" className="w-8 h-8 md:w-10 md:h-10" />
+              <img src={Facebook} alt="Facebook" className="w-8 h-8 md:w-10 md:h-10 cursor-pointer" />
+              <img src={Apple} alt="Apple" className="w-8 h-8 md:w-10 md:h-10 cursor-pointer" />
+              <img src={Google} alt="Google" className="w-8 h-8 md:w-10 md:h-10 cursor-pointer" />
             </div>
-            <h6>Don&apos;t have an account in EasySet24 yet? <b className="text-[#07689F]"><Link to="/register">Register</Link>
-            </b></h6>
+            <h6>Don&apos;t have an account in EasySet24 yet? <b className="text-[#07689F]"><Link to="/register">Register</Link></b></h6>
           </div>
         </div>
       </div>

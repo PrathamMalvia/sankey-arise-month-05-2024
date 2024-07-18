@@ -3,9 +3,9 @@ const express = require("express");
 require('dotenv').config();
 const mongoose = require("mongoose");
 const cors = require("cors");
-const errorHandler = require("./middlewares/errorHandler.js");
+const errorHandler = require("./middlewares/errorHandler");
 
-const userRoutes = require("./routes/userRoutes.js");
+const userRoutes = require("./routes/userRoutes");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
