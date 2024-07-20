@@ -9,7 +9,7 @@ import PhotoIcon from '../assets2/headerIcons/Photo.svg';
 
 const PrivateNavbar = () => {
     return (
-        <header className="w-full md:w-4/5 mx-auto my-4 flex flex-wrap justify-between items-center border px-4 md:px-0">
+        <header className="w-full md:w-4/5 mx-auto my-4 flex flex-wrap justify-between items-center px-4 md:px-0">
             <div className="flex items-center gap-4 w-full md:w-auto">
                 <img src={Logo} alt="Logo" className="w-20 h-14" />
                 <div className="flex items-center ml-4 w-full md:w-auto">

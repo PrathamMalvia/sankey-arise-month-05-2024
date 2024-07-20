@@ -6,7 +6,7 @@ import CalendarIcon from '../assets3/calendar.svg';
 const SearchTabs = () => {
     return (
         <div className="w-full md:w-4/5 mx-auto my-8 px-4">
-            <div className="flex flex-wrap gap-2 md:gap-4 items-start md:items-end"> {/* Adjusted gap and alignment */}
+            <div className="flex flex-wrap gap-2 md:gap-4 items-start md:items-end"> 
                 <div className="flex-1 min-w-[120px] md:min-w-[150px] p-1">
                     <p className="text-xs font-bold mb-1 text-center md:text-left">Place</p>
                     <button className="w-full flex items-center justify-between bg-white border border-gray-300 p-2 rounded h-[48px]">
