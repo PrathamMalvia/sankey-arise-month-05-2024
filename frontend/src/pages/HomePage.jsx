@@ -1,8 +1,12 @@
+import AboutUs from "../components/AboutUs"
 import BeachImage from "../components/BeachImage"
 import BlueImage from "../components/BlueImage"
 import DreamPlace from "../components/DreamPlace"
+import EasySet24Apps from "../components/EasySet24Apps"
+import Footer from "../components/Footer"
 import FourImages from "../components/FourImages"
 import MakeComparison from "../components/MakeComparison"
+import PaySocial from "../components/PaySocial"
 import PrivateNavbar from "../components/PrivateNavbar"
 import Profiles from "../components/Profiles"
 import SearchTabs from "../components/SearchTabs"
@@ -22,10 +26,11 @@ const HomePage = () => {
             <MakeComparison />
             <Profiles />
             <FourImages />
-
-            <div className="bg-black text-white my-20">
-                Temp
-            </div>
+            <EasySet24Apps />
+            <hr />
+            <AboutUs />
+            <PaySocial />
+            <Footer />
         </div>
     )
 }
