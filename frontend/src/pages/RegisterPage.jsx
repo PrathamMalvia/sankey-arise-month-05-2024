@@ -1,12 +1,11 @@
-import Navbar from "../components/Navbar";
-import travel from '../assets/travel.jpg';
-import Facebook from '../assets/Facebook.svg';
-import Apple from '../assets/Apple.svg';
-import Google from '../assets/Google.svg';
+import travel from '../assets1/travel.jpg';
+import Facebook from '../assets1/Facebook.svg';
+import Apple from '../assets1/Apple.svg';
+import Google from '../assets1/Google.svg';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from "react";
 import axios from 'axios';
-
+import PublicNavbar from "../components/PublicNavbar";
 
 const RegisterPage = () => {
   const [formData, setFormData] = useState({
@@ -49,7 +48,7 @@ const RegisterPage = () => {
 
   return (
     <>
-      <Navbar />
+      <PublicNavbar />
       <hr />
 
       <div className="container mx-auto my-8 p-4 md:my-20 md:p-14 flex flex-col md:flex-row bg-neutral200 border border-neutral400 w-11/12 md:w-9/12 rounded-xl">

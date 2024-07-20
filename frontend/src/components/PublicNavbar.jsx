@@ -1,8 +1,8 @@
-import Logo from '../assets/Logo.svg';
-import Question from '../assets/Question.svg';
-import England from '../assets/England.svg';
+import Logo from '../assets1/Logo.svg';
+import Question from '../assets1/Question.svg';
+import England from '../assets1/England.svg';
 
-const Navbar = () => {
+const PublicNavbar = () => {
     return (
         <div className="container mx-auto w-full md:w-10/12 flex items-center justify-between px-4 md:px-0">
             <div className="w-16 h-16 md:w-24 md:h-24">
@@ -17,4 +17,4 @@ const Navbar = () => {
     )
 }
 
-export default Navbar;
+export default PublicNavbar;
