@@ -24,21 +24,21 @@ const PaySocial = () => {
     return (
         <section className="w-full md:w-4/5 mx-auto my-8 px-4 ">
             <div className="flex flex-col md:flex-row justify-between items-center">
-                <div className="flex gap-4 mb-4 md:mb-0">
+                <div className="flex flex-wrap gap-4 mb-4 md:mb-0 justify-center">
                     {paymentMethods.map((method, index) => (
                         <img key={index} src={method.icon} alt={method.name} className="h-12" />
                     ))}
                 </div>
-                <div className="flex gap-8 mb-4 md:mb-0">
+                <div className="flex flex-wrap gap-4 mb-4 md:mb-0 justify-center">
                     {socialMedia.map((platform, index) => (
                         <img key={index} src={platform.icon} alt={platform.name} className="h-6" />
                     ))}
                 </div>
                 <div className="w-full md:w-1/3">
                     <p className="text-sm font-semibold mb-2">Email</p>
-                    <div className="flex">
-                        <input type="email" placeholder={`✉️ Enter Your email`} className="flex-grow p-2 border border-gray-300 rounded-l-md" />
-                        <button className="bg-blue-600 text-white px-4 py-2 rounded-r-md">Subscribe</button>
+                    <div className="flex flex-col md:flex-row">
+                        <input type="email" placeholder={`✉️ Enter Your email`} className="flex-grow p-2 border border-gray-300 rounded-l-md mb-2 md:mb-0 md:rounded-r-none" />
+                        <button className="bg-blue-600 text-white px-4 py-2 rounded-r-md md:rounded-l-none">Subscribe</button>
                     </div>
                 </div>
             </div>

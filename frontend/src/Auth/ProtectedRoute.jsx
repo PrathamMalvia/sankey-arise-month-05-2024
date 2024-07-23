@@ -1,22 +1,21 @@
-import { Navigate } from 'react-router-dom';
-import { useAuth } from './useAuth';
 import PropTypes from 'prop-types';
+import { Navigate } from 'react-router-dom';
+import { useContext } from 'react';
+import AuthContext from './AuthContext';
 
 const ProtectedRoute = ({ element }) => {
-    const { isAuthenticated } = useAuth();
+    const { isAuthenticated } = useContext(AuthContext);
 
-    return isAuthenticated ? (
-        element
-    ) : (
-        <>
-            {alert("You need to be logged in to access this page. Redirecting to login.")}
-            <Navigate to="/login" />
-        </>
-    );
+    if (!isAuthenticated) {
+        // alert("Please log in to continue");
+        return <Navigate to="/login" />;
+    }
+
+    return element;
 };
 
 ProtectedRoute.propTypes = {
-    element: PropTypes.oneOfType([PropTypes.element, PropTypes.func]).isRequired,
+    element: PropTypes.element.isRequired,
 };
 
 export default ProtectedRoute;

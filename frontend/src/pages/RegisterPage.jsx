@@ -3,9 +3,9 @@ import Facebook from '../assets1/Facebook.svg';
 import Apple from '../assets1/Apple.svg';
 import Google from '../assets1/Google.svg';
 import { Link, useNavigate } from 'react-router-dom';
-import { useState } from "react";
+import { useState } from 'react';
 import axios from 'axios';
-import PublicNavbar from "../components/PublicNavbar";
+import PublicNavbar from '../components/PublicNavbar';
 
 const RegisterPage = () => {
   const [formData, setFormData] = useState({
@@ -15,7 +15,9 @@ const RegisterPage = () => {
     password: '',
     confirmPassword: '',
   });
-
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
+  
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -26,25 +28,23 @@ const RegisterPage = () => {
     e.preventDefault();
 
     if (formData.password !== formData.confirmPassword) {
-      alert('Passwords do not match');
+      setError('Passwords do not match');
       return;
     }
 
     try {
       const response = await axios.post('http://localhost:4000/api/register', formData);
-
       if (response.status === 201) {
-        alert('User registered successfully');
-        navigate('/homepage'); // Navigate to the home page
+        setSuccess('User registered successfully');
+        navigate('/login');
       } else {
-        alert(response.data.message);
+        setError(response.data.message || 'Registration failed');
       }
-    }
-    catch (error) {
+    } catch (error) {
       console.error('Error:', error);
-      alert('An error occurred. Please try again.');
+      setError('An error occurred. Please try again.');
     }
-  }
+  };
 
   return (
     <>
@@ -65,6 +65,9 @@ const RegisterPage = () => {
           <h4 className="text-xl font-black mb-4">Register</h4>
 
           <form onSubmit={handleSubmit}>
+            {error && <div className="mb-4 text-red-600">{error}</div>}
+            {success && <div className="mb-4 text-green-600">{success}</div>}
+
             <div className="flex flex-col md:flex-row items-center justify-between my-4">
               <div className="w-full md:w-4/5 mb-4 md:mb-0 md:mr-4">
                 <h6 className="text-sm font-semibold my-1">First Name</h6>
@@ -164,7 +167,7 @@ const RegisterPage = () => {
       </div>
 
     </>
-  )
-}
+  );
+};
 
 export default RegisterPage;

@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import travel from '../assets1/travel.jpg';
 import Facebook from '../assets1/Facebook.svg';
 import Apple from '../assets1/Apple.svg';
 import Google from '../assets1/Google.svg';
-import { useAuth } from '../Auth/useAuth';
+import useAuth from '../Auth/useAuth';
 import PublicNavbar from '../components/PublicNavbar';
 
 const LoginPage = () => {
@@ -14,8 +14,14 @@ const LoginPage = () => {
     password: '',
   });
 
-  const { login } = useAuth(); // Get the login function from the Auth context
+  const { login, isAuthenticated } = useAuth();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/homepage');
+    }
+  }, [isAuthenticated, navigate]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -28,10 +34,10 @@ const LoginPage = () => {
       const response = await axios.post('http://localhost:4000/api/login', formData);
 
       if (response.status === 200) {
-        const { token } = response.data;
-        login(token);
-        alert('Login successful');
-        navigate('/homepage'); // Redirect to the home page
+        const { token, userId } = response.data;
+        login(token, userId);
+        alert("Login Successful");
+        navigate("/homepage")
       } else {
         alert('Login failed. Please check your credentials.');
       }
@@ -41,6 +47,9 @@ const LoginPage = () => {
     }
   };
 
+  if (isAuthenticated) {
+    return null; // Or a loading spinner
+  }
   return (
     <>
       <PublicNavbar />
@@ -94,7 +103,6 @@ const LoginPage = () => {
             </div>
             <button type="submit" className="w-full h-10 bg-[#07689F] text-white font-bold rounded-sm">Login</button>
           </form>
-
 
           <div className="flex flex-col items-center gap-2 mt-4">
             <h6 className="text-sm">Or</h6>
