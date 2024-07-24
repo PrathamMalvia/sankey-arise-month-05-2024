@@ -14,12 +14,16 @@ const EasySet24Apps = () => {
             </div>
             <div className="w-full lg:w-1/3 flex flex-col items-center lg:items-end gap-4">
                 <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-10">
-                    <img src={apple} alt="Apple Download" className="h-10 object-contain" />
-                    <img src={QRCode} alt="Apple QR Code" className="h-10 object-contain" />
+                    <a href="#apple-download">
+                        <img src={apple} alt="Download EasySet24 app on Apple App Store" className="h-10 object-contain" />
+                    </a>
+                    <img src={QRCode} alt="QR code for Apple App Store download" className="h-10 object-contain" />
                 </div>
                 <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-10">
-                    <img src={google} alt="Google Play Download" className="h-10 object-contain" />
-                    <img src={QRCode} alt="Google Play QR Code" className="h-10 object-contain" />
+                    <a href="#google-play-download">
+                        <img src={google} alt="Download EasySet24 app on Google Play Store" className="h-10 object-contain" />
+                    </a>
+                    <img src={QRCode} alt="QR code for Google Play Store download" className="h-10 object-contain" />
                 </div>
             </div>
         </section>

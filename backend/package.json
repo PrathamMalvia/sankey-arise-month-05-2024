@@ -1,14 +1,22 @@
 {
-  "name": "backend",
+  "name": "easyset24-backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "Backend for Easyset24",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon index.js"
   },
-  "author": "",
+  "author": "Easyset24 Team",
   "license": "ISC",
+  "keywords": [
+    "hotel",
+    "booking",
+    "reservation",
+    "travel",
+    "accommodation",
+    "lodging"
+  ],
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",

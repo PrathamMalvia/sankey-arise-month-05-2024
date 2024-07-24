@@ -7,15 +7,15 @@ import nepal from '../images/nepal.jpeg';
 import gothenburg from '../images/gothenburg.png';
 
 const LocationCard = ({ imageSrc, title, subtitle, className }) => (
-    <div className={`bg-white w-full md:w-64 h-32 p-2 flex rounded-md ${className}`}>
+    <article className={`bg-white w-full md:w-64 h-32 p-2 flex rounded-md ${className}`}>
         <div className="w-2/5 h-full overflow-hidden">
-            <img src={imageSrc} alt={title} className="w-full h-full object-cover" />
+            <img src={imageSrc} alt={`${title} - ${subtitle}`} className="w-full h-full object-cover" />
         </div>
         <div className="flex flex-col justify-center ml-4">
-            <h5 className="font-bold text-sm">{title}</h5>
-            <h6 className="text-xs font-normal">{subtitle}</h6>
+            <h3 className="font-bold text-sm">{title}</h3>
+            <p className="text-xs font-normal">{subtitle}</p>
         </div>
-    </div>
+    </article>
 );
 
 LocationCard.propTypes = {
@@ -34,9 +34,10 @@ const BlueImage = () => {
         <section className="w-full md:w-4/5 mx-auto px-4 overflow-hidden rounded-b-lg relative">
             <img
                 src={blueImage}
-                alt="Blue background"
+                alt="Scenic blue background representing travel destinations"
                 className="w-full h-[30rem] object-cover rounded-b-lg"
             />
+            <h2 className="sr-only">Featured Travel Destinations</h2>
             <LocationCard
                 imageSrc={belgium}
                 title="Belgium"

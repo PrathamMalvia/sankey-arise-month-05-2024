@@ -9,17 +9,20 @@ const AboutUs = () => {
     ];
 
     return (
-        <section className="w-full md:w-4/5 mx-auto my-8 px-4 ">
+        <section className="w-full md:w-4/5 mx-auto my-8 px-4">
+            <h2 className="sr-only">About EasySet24</h2>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
                 {sections.map((section, index) => (
-                    <div key={index}>
-                        <h3 className="font-semibold text-lg md:text-xl mb-4">{section.title}</h3>
+                    <nav key={index} aria-labelledby={`section-${index}`}>
+                        <h3 id={`section-${index}`} className="font-semibold text-lg md:text-xl mb-4">{section.title}</h3>
                         <ul>
                             {section.items.map((item, itemIndex) => (
-                                <li key={itemIndex} className="text-base text-gray-700 mb-2">{item}</li>
+                                <li key={itemIndex} className="text-base text-gray-700 mb-2">
+                                    <a href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}>{item}</a>
+                                </li>
                             ))}
                         </ul>
-                    </div>
+                    </nav>
                 ))}
             </div>
         </section>

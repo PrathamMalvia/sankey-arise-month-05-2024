@@ -21,15 +21,15 @@ const SpecialOffers = () => {
             <h2 className="text-2xl md:text-3xl font-bold mb-6">Special Offers</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {offers.map((offer, index) => (
-                    <div key={index} className="relative overflow-hidden rounded-lg">
-                        <img src={offer.image} alt={offer.title} className="w-full h-60 object-cover" />
+                    <article key={index} className="relative overflow-hidden rounded-lg">
+                        <img src={offer.image} alt={`${offer.title} special offer`} className="w-full h-60 object-cover" />
                         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
-                            <button className="bg-[#07689F] text-white font-semibold p-1 rounded-sm flex items-center gap-2">
+                            <a href={`#${offer.title.toLowerCase().replace(/\s+/g, '-')}`} className="bg-[#07689F] text-white font-semibold p-1 rounded-sm flex items-center gap-2">
                                 {offer.title}
-                                <img src={arrowRight} alt="arrow" />
-                            </button>
+                                <img src={arrowRight} alt="" aria-hidden="true" />
+                            </a>
                         </div>
-                    </div>
+                    </article>
                 ))}
             </div>
         </section>
