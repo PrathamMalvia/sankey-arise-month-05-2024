@@ -9,7 +9,7 @@ import gothenburg from '../images/gothenburg.png';
 const LocationCard = ({ imageSrc, title, subtitle, className }) => (
     <article className={`bg-white w-full md:w-64 h-32 p-2 flex rounded-md ${className}`}>
         <div className="w-2/5 h-full overflow-hidden">
-            <img src={imageSrc} alt={`${title} - ${subtitle}`} className="w-full h-full object-cover" />
+            <img src={imageSrc} alt={`${title} - ${subtitle}`} className="w-full h-full object-cover" loading="lazy" />
         </div>
         <div className="flex flex-col justify-center ml-4">
             <h3 className="font-bold text-sm">{title}</h3>
@@ -36,6 +36,7 @@ const BlueImage = () => {
                 src={blueImage}
                 alt="Scenic blue background representing travel destinations"
                 className="w-full h-[30rem] object-cover rounded-b-lg"
+                loading="lazy"
             />
             <h2 className="sr-only">Featured Travel Destinations</h2>
             <LocationCard
@@ -54,7 +55,7 @@ const BlueImage = () => {
                 imageSrc={newJersey}
                 title="New Jersey"
                 subtitle="Windsor"
-                className="absolute bottom-32 left-44 transform -translate-x-1/2 translate-y-1/2"   
+                className="absolute bottom-32 left-44 transform -translate-x-1/2 translate-y-1/2"
             />
             <LocationCard
                 imageSrc={nepal}

@@ -26,7 +26,7 @@ const SpecialOffers = () => {
                         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
                             <a href={`#${offer.title.toLowerCase().replace(/\s+/g, '-')}`} className="bg-[#07689F] text-white font-semibold p-1 rounded-sm flex items-center gap-2">
                                 {offer.title}
-                                <img src={arrowRight} alt="" aria-hidden="true" />
+                                <img src={arrowRight} alt="" aria-hidden="true" loading="lazy" />
                             </a>
                         </div>
                     </article>

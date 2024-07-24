@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useAuth from '../Auth/useAuth';
 
@@ -16,6 +16,7 @@ import Profiles from "../components/Profiles";
 import SearchTabs from "../components/SearchTabs";
 import SpecialOffers from "../components/SpecialOffers";
 import Tabs from "../components/Tabs";
+import LazyLoadComponent from '../components/LazyLoadComponent';
 
 const HomePage = () => {
     const { isAuthenticated } = useAuth();
@@ -26,6 +27,10 @@ const HomePage = () => {
             navigate('/login');
         }
     }, [isAuthenticated, navigate]);
+
+    const [isSpecialOffersVisible, setSpecialOffersVisible] = useState(false);
+    const [isMakeComparisonVisible, setMakeComparisonVisible] = useState(false);
+    const [isFourImagesVisible, setFourImagesVisible] = useState(false);
 
     if (!isAuthenticated) {
         return null;
@@ -39,10 +44,16 @@ const HomePage = () => {
             <SearchTabs />
             <BeachImage />
             <BlueImage />
-            <SpecialOffers />
-            <MakeComparison />
+            <LazyLoadComponent onIntersect={() => setSpecialOffersVisible(true)}>
+                {isSpecialOffersVisible && <SpecialOffers />}
+            </LazyLoadComponent>
+            <LazyLoadComponent onIntersect={() => setMakeComparisonVisible(true)}>
+                {isMakeComparisonVisible && <MakeComparison />}
+            </LazyLoadComponent>
             <Profiles />
-            <FourImages />
+            <LazyLoadComponent onIntersect={() => setFourImagesVisible(true)}>
+                {isFourImagesVisible && <FourImages />}
+            </LazyLoadComponent>
             <EasySet24Apps />
             <hr />
             <AboutUs />

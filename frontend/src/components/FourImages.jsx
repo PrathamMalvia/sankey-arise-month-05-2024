@@ -17,7 +17,7 @@ const FourImages = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {images.map((item, index) => (
                     <article key={index} className="relative rounded-lg overflow-hidden h-80">
-                        <img src={item.image} alt={item.alt} className="w-full h-full object-cover" />
+                        <img src={item.image} alt={item.alt} className="w-full h-full object-cover" loading="lazy" />
                         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
                             <h3 className="text-white text-lg font-semibold">{item.title}</h3>
                         </div>

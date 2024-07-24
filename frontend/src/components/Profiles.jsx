@@ -15,13 +15,13 @@ const Profiles = () => {
 
     return (
         <section className="relative w-full h-[40rem] overflow-hidden">
-            <img src={profileBg} alt="Scenic travel background" className="w-full h-full object-cover" />
+            <img src={profileBg} alt="Scenic travel background" className="w-full h-full object-cover" loading="lazy" />
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full lg:w-2/3 flex flex-col lg:flex-row justify-between items-center p-4">
                 {profiles.map((profile, index) => (
                     <article key={index} className="relative bg-black bg-opacity-40 rounded-lg p-4 mb-4 lg:mb-0 w-full lg:w-[30%] mx-2">
-                        <img src={profile.image} alt={`${profile.name}'s profile`} className="absolute top-[-25%] left-1/2 transform -translate-x-1/2 w-24 h-24 rounded-full" />
+                        <img src={profile.image} alt={`${profile.name}'s profile`} className="absolute top-[-25%] left-1/2 transform -translate-x-1/2 w-24 h-24 rounded-full" loading="lazy" />
                         <div className="mt-12 flex items-center justify-center mb-2">
-                            <img src={profile.flag} alt={`${profile.name}'s country flag`} className="w-6 h-6 mr-2" />
+                            <img src={profile.flag} alt={`${profile.name}'s country flag`} className="w-6 h-6 mr-2" loading="lazy" />
                             <h3 className="text-white font-semibold">{profile.name}</h3>
                         </div>
                         <p className="text-white text-sm text-center">{profile.comment}</p>

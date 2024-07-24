@@ -26,13 +26,13 @@ const PaySocial = () => {
             <div className="flex flex-col md:flex-row justify-between items-center">
                 <div className="flex flex-wrap gap-4 mb-4 md:mb-0 justify-center">
                     {paymentMethods.map((method, index) => (
-                        <img key={index} src={method.icon} alt={`Pay with ${method.name}`} className="h-12" />
+                        <img key={index} src={method.icon} alt={`Pay with ${method.name}`} className="h-12" loading="lazy" />
                     ))}
                 </div>
                 <nav className="flex flex-wrap gap-4 mb-4 md:mb-0 justify-center" aria-label="Social media links">
                     {socialMedia.map((platform, index) => (
                         <a key={index} href={`#${platform.name.toLowerCase()}`} aria-label={`Follow us on ${platform.name}`}>
-                            <img src={platform.icon} alt="" className="h-6" aria-hidden="true" />
+                            <img src={platform.icon} alt="" className="h-6" aria-hidden="true" loading="lazy" />
                         </a>
                     ))}
                 </nav>
