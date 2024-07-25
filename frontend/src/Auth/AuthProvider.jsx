@@ -13,7 +13,7 @@ const AuthProvider = ({ children }) => {
             axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
             // Verify token validity with an API call
-            axios.get('http://localhost:4000/api/verifyToken')
+            axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/verifyToken`)
                 .then(response => {
                     if (response.status === 200) {
                         setIsAuthenticated(true);

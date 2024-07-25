@@ -17,7 +17,7 @@ const RegisterPage = () => {
   });
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
-  
+
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -33,7 +33,7 @@ const RegisterPage = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:4000/api/register', formData);
+      const response = await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/register`, formData);
       if (response.status === 201) {
         setSuccess('User registered successfully');
         navigate('/login');

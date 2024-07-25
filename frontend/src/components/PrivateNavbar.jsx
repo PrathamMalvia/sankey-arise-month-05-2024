@@ -19,7 +19,7 @@ const PrivateNavbar = () => {
 
             if (token && userId) {
                 try {
-                    const response = await axios.get(`http://localhost:4000/api/users/${userId}`, {
+                    const response = await axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/users/${userId}`, {
                         headers: {
                             'Authorization': `Bearer ${token}`
                         }
